@@ -1,0 +1,10 @@
+// AUTH
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_FAIL = 'AUTH_FAIL'
+export const LOADED_SUCCESS = 'LOADED_SUCCESS'
+export const LOADED_FAIL = 'LOADED_FAIL'
+export const DELETED_SUCCESS = 'DELETED_SUCCESS'
+export const DELETED_FAIL = 'DELETED_FAIL'
+export const LOGOUT = 'LOGOUT'
+
+// PROFILE

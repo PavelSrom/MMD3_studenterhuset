@@ -8,7 +8,7 @@ const eventSchema = new mongoose.Schema({
   targetDate: {
     type: String,
     required: true,
-    maxlength: 10 // length of 'DD-MM-YYYY' is 10
+    maxlength: 10 // length of 'MM/DD/YYYY' is 10
   }
 })
 

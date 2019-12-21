@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs')
 const config = require('config')
 const auth = require('../middleware/auth')
 const User = require('../models/User')
+const Profile = require('../models/Profile')
 
 // DESC:      verify that the user is logging in with a valid token
 // ACCESS:    private
@@ -44,7 +45,9 @@ router.post(
     try {
       const userExists = await User.findOne({ email })
       if (userExists)
-        return res.status(400).json({ msg: 'User already exists' })
+        return res
+          .status(400)
+          .json({ msg: 'User with this email already exists' })
 
       const newUser = new User(req.body)
       newUser.password = await bcrypt.hash(password, 8)
@@ -101,5 +104,29 @@ router.post(
     }
   }
 )
+
+// DESC:      delete user account
+// ACCESS:    private (admins)
+// ENDPOINT:  /api/auth/delete/:id
+router.delete('/delete/:id', auth, async (req, res) => {
+  try {
+    const me = await Profile.findOne({ user: req.userID })
+    if (!me.isAdmin)
+      return res
+        .status(403)
+        .json({ msg: "You're not allowed to perform this task" })
+
+    const profileToDelete = await Profile.findOne({ user: req.params.id })
+    const userToDelete = await User.findById(req.params.id)
+
+    await profileToDelete.remove()
+    await userToDelete.remove()
+
+    return res.json({ msg: 'User and their account removed successfully' })
+  } catch (err) {
+    console.error(err.message)
+    return res.status(500).json({ msg: err.message })
+  }
+})
 
 module.exports = router

@@ -19,7 +19,7 @@ const announcementSchema = new mongoose.Schema({
   expireAt: {
     type: Date,
     default: Date.now,
-    index: { expires: '1d' }
+    index: { expires: '1d' } // expire after 1 day
   }
 })
 

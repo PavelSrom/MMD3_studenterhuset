@@ -7,6 +7,8 @@ app.use(express.json())
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/profile', require('./routes/profile'))
 app.use('/api/posts', require('./routes/bullshit'))
+app.use('/api/announcements', require('./routes/announcement'))
+app.use('/api/events', require('./routes/event'))
 
 mongoose
   .connect(config.get('mongoURI'), {
