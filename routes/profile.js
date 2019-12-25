@@ -23,9 +23,8 @@ router.get('/', auth, async (req, res) => {
 router.get('/me', auth, async (req, res) => {
   try {
     const myProfile = await Profile.findOne({ user: req.userID })
-    if (!myProfile)
-      return res.status(404).json({ msg: 'I do not have a profile' })
-
+    // returns 200 even if the user has no profile
+    // take care of this in React
     return res.json(myProfile)
   } catch (err) {
     console.error(err.message)

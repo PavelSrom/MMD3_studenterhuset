@@ -1,0 +1,25 @@
+.logo-center {
+  display: block;
+  margin: 0 auto;
+}
+.height-fixed {
+  height: 300px;
+}
+.button {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 38px;
+  padding: 12px 40px;
+  font-size: 22px;
+  line-height: 22px;
+  color: #2d2a31;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  flex-grow: 1;
+}

@@ -2,3 +2,47 @@
   margin: 0;
   padding: 0;
 }
+
+.bg-black {
+  background: #000;
+}
+.black {
+  color: #fff;
+}
+
+.bg-lightyellow {
+  background: #fff7e6;
+}
+.lightyellow {
+  color: #fff7e6;
+}
+
+.bg-yellow {
+  background: #ffbf26;
+}
+.yellow {
+  color: #ffbf26;
+}
+
+.bg-blue {
+  background: #91b2ff;
+}
+.blue {
+  color: #91b2ff;
+}
+
+.bg-darkblue {
+  background: #5c75b0;
+}
+.darkblue {
+  color: #5c75b0;
+}
+
+.gradient {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#5c75b0, #91b2ff);
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+}
