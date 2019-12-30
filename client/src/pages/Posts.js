@@ -1,9 +1,14 @@
 import React from 'react'
 
+import Header from '../components/Header'
+import BottomNav from '../components/BottomNav'
+
 const Posts = () => {
   return (
     <div>
-      <h1>Posts page</h1>
+      <Header />
+      posts page
+      <BottomNav />
     </div>
   )
 }

@@ -53,11 +53,12 @@ export const createProfile = formData => async dispatch => {
 }
 
 // update logged in user's profile
-export const updateProfile = formData => async dispatch => {
+export const updateProfile = (formData, history) => async dispatch => {
   try {
-    const res = await axios.put('/api/profile', formData)
+    const res = await axios.put('/api/profile/me', formData)
     console.log(res)
     dispatch({ type: UPDATE_PROFILE, payload: res.data })
+    history.push('/me')
   } catch (err) {
     console.log(err)
   }

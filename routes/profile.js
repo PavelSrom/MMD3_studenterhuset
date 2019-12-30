@@ -113,7 +113,9 @@ router.put('/me', auth, async (req, res) => {
     if (role) profile.role = role
     if (interests) profile.interests = interests
     if (contact) profile.contact = contact
-    if (isPresent) profile.isPresent = isPresent
+    isPresent && isPresent === true
+      ? (profile.isPresent = true)
+      : (profile.isPresent = false)
 
     await profile.save()
 

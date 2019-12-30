@@ -9,8 +9,12 @@ import {
 
 const initialState = {
   profiles: [],
-  myProfile: {},
-  userProfile: {}
+  myProfile: {
+    requestSent: false
+  },
+  userProfile: {
+    requestSent: false
+  }
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -20,7 +24,10 @@ const profileReducer = (state = initialState, action) => {
     case UPDATE_PROFILE:
       return {
         ...state,
-        myProfile: action.payload
+        myProfile: {
+          ...action.payload,
+          requestSent: true
+        }
       }
     case GET_ALL_PROFILES:
       return {
@@ -30,13 +37,16 @@ const profileReducer = (state = initialState, action) => {
     case GET_USER_PROFILE:
       return {
         ...state,
-        userProfile: action.payload
+        userProfile: {
+          ...action.payload,
+          requestSent: true
+        }
       }
     case ADMIN_UPDATE_PROFILE:
-      const targetIndex = profiles.findIndex(
+      const targetIndex = state.profiles.findIndex(
         profile => profile._id === action.payload._id
       )
-      const newProfiles = profiles.splice(targetIndex, 1, action.payload)
+      const newProfiles = state.profiles.splice(targetIndex, 1, action.payload)
 
       return {
         ...state,

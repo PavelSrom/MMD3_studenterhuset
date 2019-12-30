@@ -1,0 +1,16 @@
+.form {
+  text-align: center;
+}
+
+.form p {
+  margin-bottom: 0;
+}
+
+.form input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 12px;
+  outline: none;
+  border: 2px solid #5c75b0;
+  margin-bottom: 20px;
+}

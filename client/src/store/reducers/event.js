@@ -22,7 +22,7 @@ const eventReducer = (state = initialState, action) => {
       // otherwise, we want to add it to today events
       return {
         ...state,
-        todayEvents: [action.payload, ...todayEvents]
+        todayEvents: [action.payload, ...state.todayEvents]
       }
     default:
       return state

@@ -14,7 +14,7 @@ const announcementReducer = (state = initialState, action) => {
     case POST_NEW_ANNOUNCEMENT:
       return {
         ...state,
-        announcements: [action.payload, ...announcements]
+        announcements: [action.payload, ...state.announcements]
       }
     default:
       return state

@@ -1,9 +1,14 @@
 import React from 'react'
 
+import Header from '../components/Header'
+import BottomNav from '../components/BottomNav'
+
 const Information = () => {
   return (
     <div>
-      <h1>information page</h1>
+      <Header />
+      information page
+      <BottomNav />
     </div>
   )
 }

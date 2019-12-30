@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .bg-black {
@@ -20,7 +21,8 @@
 .bg-yellow {
   background: #ffbf26;
 }
-.yellow {
+.yellow,
+.active {
   color: #ffbf26;
 }
 
@@ -45,4 +47,16 @@
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
+}
+
+/* RESPONSIVE LAYOUT */
+
+.heading {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.container {
+  padding: 0 16px !important;
+  margin-bottom: 60px;
 }

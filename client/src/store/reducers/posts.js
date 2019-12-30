@@ -22,7 +22,7 @@ const postReducer = (state = initialState, action) => {
     case NEW_POST:
       return {
         ...state,
-        posts: [action.payload, ...posts]
+        posts: [action.payload, ...state.posts]
       }
     case VIEW_POST:
       return {
@@ -32,14 +32,14 @@ const postReducer = (state = initialState, action) => {
     case DELETE_POST:
       return {
         ...state,
-        posts: posts.filter(post => post._id !== action.payload)
+        posts: state.posts.filter(post => post._id !== action.payload)
       }
     case ADD_COMMENT:
     case DELETE_COMMENT:
-      const targetIndex = posts.findIndex(
+      const targetIndex = state.posts.findIndex(
         post => post._id === action.payload._id
       )
-      const newPosts = posts.splice(targetIndex, 1, action.payload)
+      const newPosts = state.posts.splice(targetIndex, 1, action.payload)
 
       return {
         ...state,
