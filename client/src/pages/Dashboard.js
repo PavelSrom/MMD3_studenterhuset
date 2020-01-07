@@ -10,6 +10,7 @@ import FeaturedList from '../components/Dashboard/FeaturedList'
 import Presence from '../components/Dashboard/Presence'
 import Announcement from '../components/Dashboard/Announcement'
 
+// destructuring a loooot of props
 const Dashboard = ({
   getAllProfiles,
   getAllAnnouncements,
@@ -20,10 +21,10 @@ const Dashboard = ({
   isPresent
 }) => {
   useEffect(() => {
-    getAllProfiles()
-    getAllAnnouncements()
-    getTodayEvents()
-  }, [isPresent])
+    getAllProfiles() // get all profiles as soon as Dashboard loads
+    getAllAnnouncements() // same for this
+    getTodayEvents() // same for this
+  }, [isPresent]) // re-render the Dashboard only if 'isPresent' changes
 
   const featuredProfiles = profiles.filter(profile => profile.isFeatured)
   const peoplePresent = profiles.filter(profile => profile.isPresent)
@@ -34,6 +35,7 @@ const Dashboard = ({
       <div className="container">
         {/* volunteers of the month stuff */}
         <h4 className="heading">Volunteers of the month</h4>
+        {/* if there are any people featured, we show them. otherwise we show a paragraph */}
         {featuredProfiles.length > 0 ? (
           <FeaturedList featuredProfiles={featuredProfiles} />
         ) : (
@@ -42,6 +44,7 @@ const Dashboard = ({
 
         {/* volunteers in the house stuff */}
         <h4 className="heading">Volunteers in the house</h4>
+        {/* if there are any people present, we show them. otherwise we show a paragraph */}
         {peoplePresent.length > 0 ? (
           <Presence peoplePresent={peoplePresent} />
         ) : (
@@ -50,6 +53,7 @@ const Dashboard = ({
 
         {/* announcements stuff */}
         <h4 className="heading">Announcements</h4>
+        {/* if there are any announcements, we show them. otherwise we show a paragraph */}
         {announcements.length > 0 ? (
           <Fragment>
             {announcements.map(ann => (
@@ -62,6 +66,7 @@ const Dashboard = ({
 
         {/* today events stuff */}
         <h4 className="heading">Events for today</h4>
+        {/* if there are any events for today, we show them. otherwise we show a paragraph */}
         {todayEvents.length > 0 ? (
           <Fragment>
             {todayEvents.map(event => (
@@ -76,14 +81,20 @@ const Dashboard = ({
     </Fragment>
   )
 }
-
+/* mapStateToProps defines what we want to get from Redux, and where it's located.
+We can then use these as props. Example below: "Give me the 'profiles' array.
+It's in the app-level state, in 'profile' reducer, set as 'profiles' property." */
 const mapStateToProps = state => ({
   profiles: state.profile.profiles,
   announcements: state.announcement.announcements,
   todayEvents: state.event.todayEvents,
   isPresent: state.profile.myProfile.isPresent
 })
-
+/* connecting the component to Redux happens through this 'connect' function. It
+takes up to two arguments, the first always being either null (if we don't need to
+get anything from Redux), or mapStateToProps. If we want to send any actions to
+Redux, we put them into an object and provide that object as a second argument. Just
+like mapStateToProps allows, we can then use these actions as component props. */
 export default connect(mapStateToProps, {
   getAllProfiles,
   getAllAnnouncements,

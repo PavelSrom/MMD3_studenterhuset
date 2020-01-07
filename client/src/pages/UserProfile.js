@@ -9,7 +9,7 @@ import classes from './UserProfile.module.css'
 
 const UserProfile = ({ match, userProfile, getProfileById }) => {
   useEffect(() => {
-    getProfileById(match.params.id)
+    getProfileById(match.params.id) // request for getting user's profile by id
   }, [])
 
   return (

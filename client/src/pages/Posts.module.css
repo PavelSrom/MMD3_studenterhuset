@@ -1,0 +1,33 @@
+.newPostBox {
+  border: 4px solid #5c75b0;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 40px;
+}
+
+.newPostBox p {
+  margin-bottom: 0;
+}
+
+.newPostBox textarea {
+  width: 100%;
+  height: 120px;
+  overflow-y: scroll;
+  padding: 8px;
+  resize: none;
+  background: #eee;
+}
+
+.newPostBox button {
+  background: #fff;
+  border: 4px solid #5c75b0;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 38px;
+  padding: 6px 20px;
+  font-size: 22px;
+  line-height: 22px;
+  color: #2d2a31;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}

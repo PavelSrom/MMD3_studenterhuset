@@ -1,0 +1,89 @@
+.flex {
+  display: flex;
+}
+
+.avatar {
+  width: 60px;
+}
+
+.avatarCircle {
+  width: 100%;
+  height: 60px;
+  border: 4px solid #ffbf26;
+  border-radius: 50%;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarCircle i {
+  font-size: 24px;
+  color: #333;
+}
+
+.post {
+  flex-grow: 1;
+}
+
+.postInfo {
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userInfo h6,
+.userInfo p {
+  margin: 0;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments i {
+  font-size: 22px;
+  color: #5c75b0;
+}
+
+.avatarCircleComment {
+  width: 100%;
+  height: 60px;
+  border: 4px solid #5c75b0;
+  border-radius: 50%;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarCircleComment i {
+  font-size: 24px;
+}
+
+.commentInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.input {
+  flex-grow: 1;
+  border: none;
+}
+
+.input:focus {
+  border: none;
+  outline: none;
+}
+
+.sendButton {
+  font-size: 24px;
+  color: #5c75b0;
+}

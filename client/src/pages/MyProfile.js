@@ -10,13 +10,16 @@ import classes from './MyProfile.module.css'
 
 const MyProfile = ({ getMyProfile, myProfile }) => {
   useEffect(() => {
-    getMyProfile()
+    getMyProfile() // fetch logged in user's data on this page load
   }, [])
 
   return (
     <Fragment>
       <Header />
       <div className="container">
+        {/* if the request hasn't been made, we show a spinner (paragraph) */}
+        {/* otherwise, we show the person's data and markup */}
+        {/* if we didn't make this check, the app would crash cuz 'myProfile' would have no data */}
         {!myProfile.requestSent ? (
           <p>Loading profile...</p>
         ) : (
@@ -49,6 +52,7 @@ const MyProfile = ({ getMyProfile, myProfile }) => {
   )
 }
 
+// extracting the logged in user's profile from Redux
 const mapStateToProps = state => ({
   myProfile: state.profile.myProfile
 })

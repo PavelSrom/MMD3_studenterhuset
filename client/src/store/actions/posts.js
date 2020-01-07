@@ -46,7 +46,6 @@ export const createPost = text => async dispatch => {
 export const deletePostById = id => async dispatch => {
   try {
     await axios.delete(`/api/posts/${id}`)
-    console.log(res)
     dispatch({ type: DELETE_POST, payload: id })
   } catch (err) {
     console.log(err)

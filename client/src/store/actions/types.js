@@ -1,3 +1,6 @@
+// we create these to avoid typing errors
+// then we import them in our action and reducer files
+
 // AUTH
 export const AUTH_SUCCESS = 'AUTH_SUCCESS'
 export const AUTH_FAIL = 'AUTH_FAIL'

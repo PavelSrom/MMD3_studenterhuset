@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header i {
+  margin-right: 10px;
+  background: #eee;
+  font-size: 18px;
+  padding: 8px;
+  border: 2px solid #5c75b0;
+  border-radius: 50%;
+}
+
+.header h6 {
+  margin-bottom: 0;
+}
+
+.ruleBox {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.info {
+  margin-left: 50px;
+  padding: 10px;
+  background: #eee;
+  height: 100%;
+  overflow: scroll;
+}
+
+.stepBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background: #91b2ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.stepNumber {
+  width: 30px;
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.stepNumber p {
+  font-size: 24px;
+  margin-bottom: 0;
+}

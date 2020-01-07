@@ -8,8 +8,10 @@ const auth = require('../middleware/auth')
 // ENDPOINT:  /api/profile
 router.get('/', auth, async (req, res) => {
   try {
+    // fetching all users from the database
     const allUsers = await Profile.find()
-
+    // and returning them to the client
+    // just two lines of code, how crazy is that
     return res.json(allUsers)
   } catch (err) {
     console.error(err.message)
@@ -22,8 +24,9 @@ router.get('/', auth, async (req, res) => {
 // ENDPOINT:  /api/profile/me
 router.get('/me', auth, async (req, res) => {
   try {
+    // fetching my profile
     const myProfile = await Profile.findOne({ user: req.userID })
-    // returns 200 even if the user has no profile
+    // returns 200 even if the user has no profile - on purpose
     // take care of this in React
     return res.json(myProfile)
   } catch (err) {
@@ -37,9 +40,11 @@ router.get('/me', auth, async (req, res) => {
 // ENDPOINT:  /api/profile/:id
 router.get('/:id', auth, async (req, res) => {
   try {
+    // fetching the profile by id
     const targetUser = await Profile.findOne({ user: req.params.id })
+    // if there's no such profile, we throw 404
     if (!targetUser) return res.status(404).json({ msg: 'Profile not found' })
-
+    // returning it to the client
     return res.json(targetUser)
   } catch (err) {
     console.error(err.message)
@@ -65,12 +70,13 @@ router.post(
       .isEmpty()
   ],
   async (req, res) => {
+    // request body validation
     const errors = validationResult(req)
     if (!errors.isEmpty())
       return res.status(400).json({ errors: errors.array() })
-
+    // destructuring all props
     const { firstName, lastName, role, interests, contact, isAdmin } = req.body
-
+    // creating new profile fields
     const profile = {
       user: req.userID,
       firstName,
@@ -78,18 +84,21 @@ router.post(
       role,
       interests
     }
+    // if contact and isAdmin are provided, we create them too
     if (contact) profile.contact = contact
     if (isAdmin) profile.isAdmin = isAdmin
 
     try {
+      // checking if the profile already exists
       const profileExists = await Profile.findOne({ user: req.userID })
       if (profileExists)
+        // if it does, we throw 400
         return res.status(400).json({ msg: 'Profile already exists' })
-
+      // if it doesn't, we create a new profile
       const newProfile = new Profile(profile)
-
+      // save it to DB
       await newProfile.save()
-
+      // and return to the client
       return res.status(201).json(newProfile)
     } catch (err) {
       console.error(err.message)
@@ -106,7 +115,9 @@ router.put('/me', auth, async (req, res) => {
   const { role, interests, contact, isPresent } = req.body
 
   try {
+    // fetching the user's profile
     const profile = await Profile.findOne({ user: req.userID })
+    // error handing
     if (!profile) return res.status(404).json({ msg: 'Profile not found' })
 
     // checking what is present and updating it accordingly
@@ -116,9 +127,9 @@ router.put('/me', auth, async (req, res) => {
     isPresent && isPresent === true
       ? (profile.isPresent = true)
       : (profile.isPresent = false)
-
+    // saving it to database
     await profile.save()
-
+    // and returning to the client
     return res.json(profile)
   } catch (err) {
     console.error(err.message)
@@ -142,7 +153,7 @@ router.put('/:id', auth, async (req, res) => {
       return res
         .status(403)
         .json({ msg: "You're not allowed to perform this task" })
-
+    // fetching the profile that should be updated
     const profile = await Profile.findById(req.params.id)
     if (!profile)
       return res.status(404).json({ msg: 'This user profile not found' })
@@ -150,9 +161,9 @@ router.put('/:id', auth, async (req, res) => {
     // checking what is present and updating it accordingly
     if (isAdmin) profile.isAdmin = isAdmin
     if (isFeatured) profile.isFeatured = isFeatured
-
+    // saving changes
     await profile.save()
-
+    // and returning it back to the client
     return res.json(profile)
   } catch (err) {
     console.error(err.message)

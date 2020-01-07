@@ -12,6 +12,7 @@ const Person = ({ profile }) => {
 
   return (
     <div className={classes.flex}>
+      {/* link to '/people/:id' (:id is dynamically set) */}
       <Link to={`/people/${profile.user}`}>
         <div className={classes.avatar}>
           <i className="fas fa-user darkblue"></i>

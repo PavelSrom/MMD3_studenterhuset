@@ -3,6 +3,7 @@ import classes from './FeaturedList.module.css'
 
 const FeaturedList = ({ featuredProfiles }) => (
   <div className={classes.featuredBox}>
+    {/* looping through volunteers of the month and outputting them */}
     {featuredProfiles.map(profile => (
       <div key={profile._id} className={classes.profileBox}>
         <div className={classes.avatar}>

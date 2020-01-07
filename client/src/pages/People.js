@@ -10,9 +10,10 @@ import classes from './People.module.css'
 
 const People = ({ profiles, getAllProfiles }) => {
   useEffect(() => {
-    getAllProfiles()
+    getAllProfiles() // server request as soon as the page loads
   }, [])
 
+  // to know who are we searching for
   const [input, setInput] = useState('')
 
   return (
@@ -28,6 +29,8 @@ const People = ({ profiles, getAllProfiles }) => {
           className={classes.input}
         />
 
+        {/* showing the filtered list based on user input */}
+        {/* and outputting each user as a <Person /> component */}
         {profiles
           .filter(
             profile =>
@@ -43,6 +46,7 @@ const People = ({ profiles, getAllProfiles }) => {
   )
 }
 
+// getting the people from Redux
 const mapStateToProps = state => ({
   profiles: state.profile.profiles
 })

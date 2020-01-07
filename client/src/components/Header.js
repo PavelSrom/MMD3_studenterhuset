@@ -7,9 +7,10 @@ import classes from './Header.module.css'
 const Header = ({ updateProfile, isPresent: presence }) => {
   const [isPresent, setIsPresent] = useState(false)
 
+  // this function runs when the checkbox value is changed
   const sendPresence = () => {
-    setIsPresent(!isPresent)
-    updateProfile({ isPresent: !isPresent })
+    setIsPresent(!isPresent) // set presence to the opposite value
+    updateProfile({ isPresent: !isPresent }) // request to the server
   }
 
   return (

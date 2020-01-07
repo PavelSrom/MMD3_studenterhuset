@@ -1,4 +1,5 @@
 import React from 'react'
+// same as <Link />, but has styling options by using '.active' class
 import { NavLink } from 'react-router-dom'
 
 import classes from './BottomNav.module.css'
