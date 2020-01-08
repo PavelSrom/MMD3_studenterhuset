@@ -75,7 +75,14 @@ router.post(
     if (!errors.isEmpty())
       return res.status(400).json({ errors: errors.array() })
     // destructuring all props
-    const { firstName, lastName, role, interests, contact, isAdmin } = req.body
+    const {
+      firstName,
+      lastName,
+      role,
+      interests,
+      phoneNumber,
+      isAdmin
+    } = req.body
     // creating new profile fields
     const profile = {
       user: req.userID,
@@ -84,8 +91,8 @@ router.post(
       role,
       interests
     }
-    // if contact and isAdmin are provided, we create them too
-    if (contact) profile.contact = contact
+    // if phone number and isAdmin are provided, we create them too
+    if (phoneNumber) profile.phoneNumber = phoneNumber
     if (isAdmin) profile.isAdmin = isAdmin
 
     try {
@@ -112,7 +119,7 @@ router.post(
 // ENDPOINT:  /api/profile/me
 router.put('/me', auth, async (req, res) => {
   // things that can be possibly updated (not mandatory)
-  const { role, interests, contact, isPresent } = req.body
+  const { role, interests, phoneNumber, isPresent } = req.body
 
   try {
     // fetching the user's profile
@@ -123,7 +130,7 @@ router.put('/me', auth, async (req, res) => {
     // checking what is present and updating it accordingly
     if (role) profile.role = role
     if (interests) profile.interests = interests
-    if (contact) profile.contact = contact
+    if (phoneNumber) profile.phoneNumber = phoneNumber
     isPresent && isPresent === true
       ? (profile.isPresent = true)
       : (profile.isPresent = false)

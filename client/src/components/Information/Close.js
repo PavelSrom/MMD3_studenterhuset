@@ -1,19 +1,34 @@
 import React, { Fragment, useState } from 'react'
+import WithGradient from '../../hoc/WithGradient'
 import classes from './Close.module.css'
 
 const Beer = () => {
   const [steps] = useState([
     {
-      headline: 'Choose the appropriate closing method',
-      description: 'The number should be the same as on the beer in the bar.'
+      headline: 'Cleanup',
+      description:
+        'Clean all flat areas in the bar, by the counter, beer taps, coffee machine etc.'
     },
     {
-      headline: 'Step 2',
-      description: 'This is step two'
+      headline: 'Trash',
+      description: 'Take out the trash and put new bags in the trash bucket.'
     },
     {
-      headline: 'Step 3',
-      description: 'This is step three'
+      headline: 'Inventory',
+      description: 'Do the cash inventory and depozit it.'
+    },
+    {
+      headline: 'Final check',
+      description:
+        'Do the closing round, make sure all exterior doors are properly locked and turn off all lights.'
+    },
+    {
+      headline: 'Leave',
+      description: 'Set the alarm and lock the front door.'
+    },
+    {
+      headline: 'Return the card',
+      description: 'Deposit the closing card in the mail box.'
     }
   ])
   const [currStep, setCurrStep] = useState(0)
@@ -21,7 +36,9 @@ const Beer = () => {
   return (
     <Fragment>
       <div className={classes.header}>
-        <i className="fas fa-key"></i>
+        <WithGradient thin blue style={{ marginRight: 10 }}>
+          <i className="fas fa-key"></i>
+        </WithGradient>
         <h6>How-to-close list</h6>
       </div>
 
@@ -29,7 +46,7 @@ const Beer = () => {
         {/* src={require(...)} is a way of rendering images dynamically */}
         <img
           className={classes.img}
-          src={require(`../../utils/tutorials/placeholder${currStep + 1}.png`)}
+          src={require(`../../utils/tutorials/close${currStep + 1}.jpg`)}
         />
 
         {/* fixed step indicator on the left side */}
@@ -62,7 +79,9 @@ const Beer = () => {
 
       {/* additional description for images */}
       <div className={classes.text}>
-        <h5>{steps[currStep].headline}</h5>
+        <h5>
+          {currStep + 1}. {steps[currStep].headline}
+        </h5>
         <p>{steps[currStep].description}</p>
       </div>
     </Fragment>

@@ -3,6 +3,34 @@
   padding: 8px 16px;
   border-radius: 12px;
   outline: none;
-  border: 2px solid #5c75b0;
+  border: 4px solid #5c75b0;
   margin-bottom: 20px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.roleBox {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roleAvatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.roleName {
+  text-transform: capitalize;
 }

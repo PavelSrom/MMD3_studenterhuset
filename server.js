@@ -24,6 +24,15 @@ mongoose
     console.error(err.message)
   })
 
+// serving React front-end in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+
+  app.get('*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
+
 // running on the given port or port 5000
 const PORT = process.env.PORT || 5000
 

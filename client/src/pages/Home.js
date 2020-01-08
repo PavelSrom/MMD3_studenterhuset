@@ -7,7 +7,7 @@ const Home = () => (
   <div className="gradient">
     <div className="height-fixed">
       <img src={logo} alt="" className="logo-center" />
-      <h3 className="text-center mt-2">Studenterhuset</h3>
+      <h3 className="text-center mt-2 heading">Studenterhuset</h3>
     </div>
     <div className="text-center flex">
       <p style={{ fontSize: 18 }}>

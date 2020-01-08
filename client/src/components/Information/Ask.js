@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import Popup from './Popup'
+import WithGradient from '../../hoc/WithGradient'
 import classes from './Ask.module.css'
 
 const Ask = () => {
@@ -12,21 +13,21 @@ const Ask = () => {
     {
       fullName: 'Mathias Jensen',
       position: 'manager',
-      phoneNumber: '1234 5678',
+      phoneNumber: '+4512345678',
       messenger: 'some messenger'
     },
     {
-      fullName: 'Pavel Jensen',
+      fullName: 'Pavel Srom',
       position: 'manager',
       phoneNumber: '1234 5678'
     },
     {
-      fullName: 'Olga Jensen',
+      fullName: 'Olga Flegel',
       position: 'manager',
       messenger: 'another messenger'
     },
     {
-      fullName: 'Kinga Jensen',
+      fullName: 'Kinga Toth',
       position: 'manager'
     }
   ])
@@ -39,7 +40,9 @@ const Ask = () => {
   return (
     <Fragment>
       <div className={classes.header}>
-        <i className="fas fa-comment"></i>
+        <WithGradient thin blue style={{ marginRight: 10 }}>
+          <i className="fas fa-comment"></i>
+        </WithGradient>
         <h6>List of people to contact</h6>
       </div>
 
@@ -49,7 +52,9 @@ const Ask = () => {
           key={index}
           className={classes.personBox}
         >
-          <div className={classes.personAvatar}></div>
+          <WithGradient blue style={{ marginRight: 15 }}>
+            <div className={classes.personAvatar}></div>
+          </WithGradient>
           <h6>
             {person.fullName} - {person.position}
           </h6>

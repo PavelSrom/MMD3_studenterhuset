@@ -1,14 +1,11 @@
 .avatar {
   width: 120px;
   height: 120px;
-  border: 8px solid #ffbf26;
   border-radius: 50%;
   background: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  margin-top: 40px;
 }
 
 .avatar i {
@@ -18,9 +15,26 @@
 
 .moreInfo {
   margin-top: 80px;
-  text-align: center;
+}
+
+.moreInfoSection {
+  margin-left: 50px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .moreInfo h5 {
+  margin-left: 10px;
   margin-bottom: 0;
+}
+
+.iconAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border-radius: 50%;
 }

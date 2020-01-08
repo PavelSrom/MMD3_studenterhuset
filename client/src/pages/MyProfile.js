@@ -5,6 +5,7 @@ import { getMyProfile } from '../store/actions/profile'
 
 import Header from '../components/Header'
 import BottomNav from '../components/BottomNav'
+import WithGradient from '../hoc/WithGradient'
 
 import classes from './MyProfile.module.css'
 
@@ -24,8 +25,12 @@ const MyProfile = ({ getMyProfile, myProfile }) => {
           <p>Loading profile...</p>
         ) : (
           <Fragment>
-            <div className={classes.avatar}>
-              <i className="fas fa-user"></i>
+            <div style={{ width: 'fit-content', margin: '0 auto' }}>
+              <WithGradient yellow style={{ marginTop: 40 }}>
+                <div className={classes.avatar}>
+                  <i className="fas fa-user"></i>
+                </div>
+              </WithGradient>
             </div>
             <h4 style={{ textAlign: 'center', marginTop: 20 }}>
               {myProfile.firstName} {myProfile.lastName}

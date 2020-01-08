@@ -1,16 +1,25 @@
 .flex {
   display: flex;
+  align-items: center;
   margin: 10px 0;
 }
 
 .avatar {
   display: flex;
   background: #ddd;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
   border-radius: 50%;
-  border: 2px solid #ffbf26;
+}
+
+.roleIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+  border-radius: 50%;
 }

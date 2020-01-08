@@ -1,14 +1,12 @@
 .avatar {
   width: 120px;
   height: 120px;
-  border: 8px solid #ffbf26;
   border-radius: 50%;
   background: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  margin-top: 40px;
 }
 
 .avatar i {

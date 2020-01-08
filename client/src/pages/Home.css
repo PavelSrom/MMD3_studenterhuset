@@ -1,6 +1,10 @@
 .logo-center {
   display: block;
   margin: 0 auto;
+  animation-name: rotateLogo;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 .height-fixed {
   height: 300px;
@@ -22,4 +26,13 @@
   justify-content: space-between;
   height: auto;
   flex-grow: 1;
+}
+
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -21,14 +21,14 @@ const Login = ({ loginUser, isAuthenticated }) => {
   return (
     <div className="gradient">
       <div className="height-fixed text-center">
-        <h4 className="text-white mb-5">Sign in</h4>
+        <h4 className="text-white mb-5 heading">Sign in</h4>
         <img
           src={logo}
           alt=""
           className="logo-center"
           style={{ maxWidth: 120 }}
         />
-        <h4>Studenterhuset</h4>
+        <h4 className="heading">Studenterhuset</h4>
       </div>
       <div className="flex">
         <div style={{ position: 'relative', bottom: 30 }}>

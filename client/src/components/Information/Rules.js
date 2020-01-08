@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import WithGradient from '../../hoc/WithGradient'
 import classes from './Rules.module.css'
 
 const Rules = () => {
@@ -76,7 +77,9 @@ const Rules = () => {
   return (
     <Fragment>
       <div className={classes.header}>
-        <i className="fas fa-question-circle"></i>
+        <WithGradient thin blue style={{ marginRight: 10 }}>
+          <i className="fas fa-question-circle"></i>
+        </WithGradient>
         <h6>House rules</h6>
       </div>
       <div style={{ marginLeft: 46 }}>

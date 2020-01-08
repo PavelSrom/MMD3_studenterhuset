@@ -33,7 +33,7 @@ const profileSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  contact: {
+  phoneNumber: {
     type: String
   }
 })

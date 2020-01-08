@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://mmd3_group7:mmd3pavel@mmd3-6s8r8.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "studenterhuset_aalborg"
+}

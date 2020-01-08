@@ -1,33 +1,62 @@
-import React from 'react'
-// same as <Link />, but has styling options by using '.active' class
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, withRouter } from 'react-router-dom'
 
 import classes from './BottomNav.module.css'
 
-const BottomNav = () => {
-  const iconStyle = {
-    fontSize: 36
+// console.log(location.pathname) to see what's going on here
+const BottomNav = ({ location }) => {
+  // having links and their icons in our state
+  const [links] = useState([
+    {
+      link: '/dashboard',
+      icon: 'fas fa-home'
+    },
+    {
+      link: '/info',
+      icon: 'fas fa-info'
+    },
+    {
+      link: '/people',
+      icon: 'fas fa-user-friends'
+    },
+    {
+      link: '/me',
+      icon: 'fas fa-user'
+    },
+    {
+      link: '/posts',
+      icon: 'fas fa-comment-alt'
+    }
+  ])
+
+  const defaultStyle = {
+    fontSize: 36,
+    color: '#5c75b0'
+  }
+
+  const activeStyle = {
+    fontSize: 36,
+    color: '#ffbf26'
   }
 
   return (
     <div className={classes.nav}>
-      <NavLink to="/dashboard">
-        <i className="fas fa-home" style={iconStyle}></i>
-      </NavLink>
-      <NavLink to="/info">
-        <i className="fas fa-info" style={iconStyle}></i>
-      </NavLink>
-      <NavLink to="/people">
-        <i className="fas fa-user-friends" style={iconStyle}></i>
-      </NavLink>
-      <NavLink to="/me">
-        <i className="fas fa-user" style={iconStyle}></i>
-      </NavLink>
-      <NavLink to="/posts">
-        <i className="fas fa-comment-alt" style={iconStyle}></i>
-      </NavLink>
+      {links.map(link =>
+        // if the link is the same as the page we're currently on,
+        // we want to make the icon yellow (we're changing the 'style' prop)
+        link.link === location.pathname ? (
+          <Link to={link.link} key={link.link}>
+            <i className={link.icon} style={activeStyle}></i>
+          </Link>
+        ) : (
+          <Link to={link.link} key={link.link}>
+            <i className={link.icon} style={defaultStyle}></i>
+          </Link>
+        )
+      )}
     </div>
   )
 }
 
-export default BottomNav
+// giving this component access to routing-related props
+export default withRouter(BottomNav)
